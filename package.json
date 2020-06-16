@@ -8,8 +8,15 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "algoliasearch": "^4.0.1",
+    "classnames": "2.2.6",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "instantsearch.js": "^4.5.0",
+    "tailwindcss": "^1.4.6",
+    "vue": "^2.6.11",
+    "vue-feather-icons": "^5.0.0",
+    "vue-instantsearch": "^3.0.3",
+    "vue-slider-component": "3.0.32"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
@@ -34,9 +41,15 @@
     },
     "rules": {}
   },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {},
+      "tailwindcss": "./tailwind.config.js"
+    }
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not dead"
+    "not ie <= 8"
   ]
 }
