@@ -1,12 +1,38 @@
 /* Global */
 
+.theme-darkpurple {
+  color: #1a1c4f;
+}
+
+.theme-purple {
+  color: #4544e2;
+}
+
+.theme-teal {
+  color:#5fe0fb;
+}
+
+.theme-bgdarkpurple {
+ background-color: #1a1c4f;
+}
+
+.theme-bgpurple {
+  background-color: #4544e2;
+}
+
+.theme-bgteal {
+  background-color:#5fe0fb;
+}
+
+
+
 [class^='ais-'] {
   box-sizing: border-box;
-  font-size: 0.9rem;
+ /* font-size: 0.9rem;*/
 }
 
 a[class^='ais-'] {
-  color: #21243d;
+ /* color: #21243d;*/
   text-decoration: none;
 }
 
@@ -52,22 +78,22 @@ a[class^='ais-'] {
 .ais-HitsPerPage-select,
 .ais-Stats,
 .ais-ToggleRefinement {
-  color: #21243d;
-  font-size: 0.75rem;
+  /*color: #21243d;*/
+  /*font-size: 0.75rem;*/
 }
 
 /* Highlighting */
 
 .ais-Highlight-highlighted,
 .ais-Snippet-highlighted {
-  background: rgba(226, 164, 0, 0.4);
+  background: rgb(191, 252, 255);
 }
 
 /* Hits */
 
 .ais-Hits-list {
   display: grid;
-  grid-gap: 40px;
+  grid-gap: 20px;
   grid-template-columns: 1fr;
 }
 
@@ -75,14 +101,14 @@ a[class^='ais-'] {
   .ais-Hits-list {
     grid-template-columns: 1fr 1fr;
   }
-}
+}*/
 
-@media (min-width: 900px) {
+/*@media (min-width: 900px) {
   .ais-Hits-list {
     grid-template-columns: 1fr 1fr 1fr;
   }
-}*/
-
+}
+*/
 /*@media (min-width: 1200px) {
   .ais-Hits-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -157,7 +183,7 @@ a[class^='ais-'] {
   color: #21243d;
   font-size: 0.678rem;
   font-weight: 600;
-  letter-spacing: 0.08rem;
+  /*letter-spacing: 0.08rem;*/
   line-height: 1.6;
   padding-bottom: 1rem;
   text-transform: uppercase;
@@ -237,7 +263,7 @@ a[class^='ais-'] {
 .ais-RefinementList .ais-SearchBox-input {
   border-radius: 3px;
   color: rgba(33, 36, 61, 0.8);
-  font-size: 0.8rem;
+  font-size: .875rem;
   min-height: 40px;
   padding: 0 44px;
 }
@@ -309,7 +335,7 @@ a[class^='ais-'] {
 .ais-HierarchicalMenu-showMore,
 .ais-Menu-showMore,
 .ais-RefinementList-showMore {
-  /*margin-top: 1rem;*/
+  margin-top: 1rem;
 }
 
 .ais-HierarchicalMenu-list {
@@ -408,7 +434,7 @@ a[class^='ais-'] {
   appearance: none;
   background: none;
   border: none;
-  color: #21243d;
+  /*color: #21243d;*/
   font-family: inherit;
 }
 
@@ -491,8 +517,8 @@ a[class^='ais-'] {
 }
 
 .ais-Pagination-item {
-  height: 38px;
-  width: 38px;
+  height: 50px;
+  width: 50px;
 }
 
 .ais-Pagination-item {

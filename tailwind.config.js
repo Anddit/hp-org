@@ -1,5 +1,20 @@
 module.exports = {
-  theme: {},
+  theme: {
+    extend: {
+        colors: {
+                teal: {
+                 500: '#5fe0fb',
+               },
+                blue: {
+                 500: '#1062ed',
+               },
+               indigo: {
+                600: '#4544e2',
+                800: '#1a1c4f',
+               }
+             }
+           }
+  },
   variants: {},
   plugins: [],
   purge: {

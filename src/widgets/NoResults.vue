@@ -80,13 +80,13 @@
       </svg>
 
       <p class="hits-empty-state-title">
-        Sorry, we can&apos;t find any matches to your query!
+        There don't seem to be any results for this search. 
       </p>
       <p class="hits-empty-state-description">
         {{
           state.results.getRefinements().length > 0
             ? 'Try to reset your applied filters.'
-            : 'Please try another query.'
+            : 'Please try another search term or filter.'
         }}
       </p>
 

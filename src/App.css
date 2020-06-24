@@ -1,3 +1,42 @@
+
+
+/*<style type="text/css">*/
+    @font-face{
+        font-family:"AvenirNextLTW01-Regular";
+        src:url("./assets/Fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix");
+        src:url("./assets/Fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("eot"),url("./assets/Fonts/2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2") format("woff2"),url("./assets/Fonts/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff"),url("./assets/Fonts/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf") format("truetype");
+    }
+
+    @font-face{
+        font-family:"AvenirNextLTW01-Medium";
+        src:url("./assets/Fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix");
+        src:url("./assets/Fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix") format("eot"),url("./assets/Fonts/627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2") format("woff2"),url("./assets/Fonts/f26faddb-86cc-4477-a253-1e1287684336.woff") format("woff"),url("./assets/Fonts/63a74598-733c-4d0c-bd91-b01bffcd6e69.ttf") format("truetype");
+    }
+
+    @font-face{
+        font-family:"Avenir Next LT W01 Demi";
+        src:url("./assets/Fonts/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?#iefix");
+        src:url("./assets/Fonts/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?#iefix") format("eot"),url("./assets/Fonts/aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2") format("woff2"),url("./assets/Fonts/91b50bbb-9aa1-4d54-9159-ec6f19d14a7c.woff") format("woff"),url("./assets/Fonts/a0f4c2f9-8a42-4786-ad00-fce42b57b148.ttf") format("truetype");
+    }
+
+    @font-face{
+        font-family:"Avenir Next LT W01 Bold";
+        src:url("./assets/Fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix");
+        src:url("./assets/Fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix") format("eot"),url("./assets/Fonts/14c73713-e4df-4dba-933b-057feeac8dd1.woff2") format("woff2"),url("./assets/Fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff") format("woff"),url("./assets/Fonts/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf") format("truetype");
+    }
+
+/*</style>*/
+/*<script type="text/javascript">
+var MTIProjectId='0ed09238-73d8-4c91-8581-0acc9496f236';
+ (function() {
+        var mtiTracking = document.createElement('script');
+        mtiTracking.type='text/javascript';
+        mtiTracking.async='true';
+         mtiTracking.src='mtiFontTrackingCode.js';
+        (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild( mtiTracking );
+   })();
+</script>*/
+
 * {
   box-sizing: border-box;
 }
@@ -10,29 +49,34 @@ h2 {
 }
 
 body {
-  font-family: Open Sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  /*font-family: Open Sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol';
+    'Segoe UI Symbol';*/
+    font-family: "AvenirNextLTW01-Regular", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 h2 {
-  color: #21243d;
-  font-family: Hind, sans-serif;
+  /*color: #21243d;*/
+  font-family: "Avenir Next LT W01 Demi", sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Header */
-.articlerow {
-  height:24rem;
+.t1 {
+  font-family:"AvenirNextLTW01-Medium", sans-serif;
 }
+.t2 {
+  font-family:"Avenir Next LT W01 Demi", sans-serif;
+}
+/* Header */
+
 .header {
   align-items: center;
-  background: linear-gradient(to bottom, #fbc300, #c98a00);
-  background-image: url('./images/cover.jpg');
-  background-image: url('./images/cover.jpg'),
-    linear-gradient(to bottom, #fbc300, #c98a00);
+  background: linear-gradient(to bottom, #5CCEF8, #4544E2);
+  background-image: url('./images/cover.png');
+  background-image: url('./images/cover.png'),
+    linear-gradient(to bottom, #5CCEF8, #4544E2);
   background-position: center;
   background-size: cover;
   color: #fff;
@@ -65,12 +109,14 @@ h2 {
   margin: 0 auto;
   max-width: 1300px;
   padding: 2rem 1rem;
+  width:auto;
 }
 
 .container-filters {
   flex: 1;
-  /*margin-right: 60px;
-  max-width: 260px;*/
+  margin-right: 80px;
+  max-width: 260px;
+  width:100%;
 }
 
 .container-header {
@@ -129,13 +175,14 @@ mark {
 /* Panel */
 
 .container-body .ais-Panel {
-/*  border-top: 1px solid #ebecf3;*/
- /* padding-bottom: 2rem;
-  padding-top: 2rem;*/
+  border-top: 1px solid #ebecf3;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 
 .ais-Panel-header {
-  font-family: Hind, sans-serif;
+ /* font-family: Hind, sans-serif;*/
+  font-family:"Avenir Next LT W01 Demi", sans-serif;
 }
 
 /* Search box */
@@ -149,8 +196,9 @@ mark {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 48px 0 rgba(0, 0, 0, 0.2);
-  font-family: Hind, sans-serif;
+  font-family: "AvenirNextLTW01-Regular", sans-serif;
   height: 64px;
+  font-size:1rem;
   /*
     The "Hind" font family is vertically off-balance.
     Adding 4px of padding top makes it more vertically aligned.
@@ -166,6 +214,7 @@ mark {
 .header .ais-SearchBox .ais-SearchBox-input::placeholder {
   color: rgba(33, 36, 61, 0.24);
   opacity: 1; /* Firefox */
+
 }
 
 .ais-SearchBox-input:-ms-input-placeholder {
@@ -177,11 +226,11 @@ mark {
 }
 
 .ais-SearchBox-submit {
-  color: #e2a400;
+  color: #1062ed;
 }
 
 .ais-RefinementList .ais-SearchBox-input {
-  font-family: Hind, sans-serif;
+ font-family: "AvenirNextLTW01-Regular", sans-serif;
   /*
     The "Hind" font family is vertically off-balance.
     Adding some padding top makes it more vertically aligned.
@@ -192,9 +241,9 @@ mark {
 /* Hits */
 
 .hit {
-  color: #21243d;
+  /*color: #21243d;*/
   font-size: 14px;
-  /*line-height: 18px;*/
+  line-height: 18px;
 }
 
 .hit h1 {
@@ -223,10 +272,10 @@ mark {
 .hit-image-container {
   align-items: center;
   display: flex;
-  /*height: 174px;*/
+  height: 174px;
   justify-content: center;
   margin: auto;
-/*  width: 174px;*/
+  width: 174px;
 }
 
 .hit-image {
@@ -236,7 +285,7 @@ mark {
 }
 
 .hit-em {
-  color: #e2a400;
+  color: #1062ed;
   font-size: 11px;
   font-weight: 600;
 }
@@ -302,7 +351,7 @@ mark {
 }
 
 .ais-ToggleRefinement-checkbox:checked::before {
-  color: #e2a400;
+  color: #1062ed;
 }
 
 .ais-ToggleRefinement-checkbox::before {

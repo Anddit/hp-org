@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/hope-portal',
+  // publicPath: '/hope-portal/',
 };

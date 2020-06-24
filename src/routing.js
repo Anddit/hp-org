@@ -22,24 +22,27 @@ function getFallbackSortByRoutingValue(sortByValue) {
   return undefined;
 }
 
-function getFallbackRatingsRoutingValue(value) {
-  const ratingValue = Number(value);
+// function getFallbackRatingsRoutingValue(value) {
+//   const ratingValue = Number(value);
 
-  if (ratingValue >= 1 && ratingValue <= 4) {
-    return value;
-  }
+//   if (ratingValue >= 1 && ratingValue <= 4) {
+//     return value;
+//   }
 
-  return undefined;
-}
+//   return undefined;
+// }
 
 const routeStateDefaultValues = {
   query: '',
   page: '1',
   states: undefined,
   category: '',
-  rating: '',
-  price: '',
-  free_shipping: 'false',
+  diagnoses: undefined,
+  // rating: '',
+  // price: '',
+  nationalus: 'false',
+  allchildhoodcancer: 'false',
+  // free_shipping: 'false',
   sortBy: 'production_organizations',
   hitsPerPage: '20',
 };
@@ -130,23 +133,29 @@ const router = historyRouter({
     ) {
       queryParameters.states = routeState.states.map(encodeURIComponent);
     }
+    // if (
+    //   routeState.rating &&
+    //   routeState.rating !== routeStateDefaultValues.rating
+    // ) {
+    //   queryParameters.rating = routeState.rating;
+    // }
+    // if (
+    //   routeState.price &&
+    //   routeState.price !== routeStateDefaultValues.price
+    // ) {
+    //   queryParameters.price = routeState.price;
+    // }
     if (
-      routeState.rating &&
-      routeState.rating !== routeStateDefaultValues.rating
+      routeState.nationalus &&
+      routeState.nationalus !== routeStateDefaultValues.nationalus
     ) {
-      queryParameters.rating = routeState.rating;
+      queryParameters.nationalus = routeState.nationalus;
     }
     if (
-      routeState.price &&
-      routeState.price !== routeStateDefaultValues.price
+      routeState.allchildhoodcancer &&
+      routeState.allchildhoodcancer !== routeStateDefaultValues.allchildhoodcancer
     ) {
-      queryParameters.price = routeState.price;
-    }
-    if (
-      routeState.free_shipping &&
-      routeState.free_shipping !== routeStateDefaultValues.free_shipping
-    ) {
-      queryParameters.free_shipping = routeState.free_shipping;
+      queryParameters.allchildhoodcancer = routeState.allchildhoodcancer;
     }
     if (
       routeState.sortBy &&
@@ -179,8 +188,10 @@ const router = historyRouter({
       query = '',
       page = 1,
       states = [],
-      price,
-      free_shipping,
+      // price,
+      nationalus,
+      allchildhoodcancer,
+      // free_shipping,
     } = queryParameters;
     // `qs` does not return an array when there's a single value.
     const allStates = Array.isArray(states) ? states : [states].filter(Boolean);
@@ -188,16 +199,18 @@ const router = historyRouter({
       queryParameters.hitsPerPage
     );
     const sortBy = getFallbackSortByRoutingValue(queryParameters.sortBy);
-    const rating = getFallbackRatingsRoutingValue(queryParameters.rating);
+    // const rating = getFallbackRatingsRoutingValue(queryParameters.rating);
 
     return {
       query: decodeURIComponent(query),
       page,
       states: allStates.map(decodeURIComponent),
       category,
-      rating,
-      price,
-      free_shipping,
+      // rating,
+      // price,
+      nationalus,
+      allchildhoodcancer,
+      // free_shipping,
       sortBy,
       hitsPerPage,
     };
@@ -215,11 +228,17 @@ const getStateMapping = ({ indexName }) => ({
         indexUiState.hierarchicalMenu &&
         indexUiState.hierarchicalMenu['hierarch.lvl0'] &&
         indexUiState.hierarchicalMenu['hierarch.lvl0'].join('/'),
-      rating: indexUiState.ratingMenu && String(indexUiState.ratingMenu.rating),
-      price: indexUiState.range && indexUiState.range.price,
-      free_shipping:
-        (indexUiState.toggle && String(indexUiState.toggle.free_shipping)) ||
-        undefined,
+      // rating: indexUiState.ratingMenu && String(indexUiState.ratingMenu.rating),
+      // price: indexUiState.range && indexUiState.range.price,
+      nationalus:
+      (indexUiState.toggle && String(indexUiState.toggle.nationalus)) ||
+              undefined,
+      allchildhoodcancer:
+      (indexUiState.toggle && String(indexUiState.toggle.allchildhoodcancer)) ||
+              undefined,
+      // free_shipping:
+      //   (indexUiState.toggle && String(indexUiState.toggle.free_shipping)) ||
+      //   undefined,
       sortBy: indexUiState.sortBy,
       hitsPerPage:
         (indexUiState.hitsPerPage && String(indexUiState.hitsPerPage)) ||
@@ -240,14 +259,15 @@ const getStateMapping = ({ indexName }) => ({
         refinementList: {
           states: routeState.states,
         },
-        ratingMenu: {
-          rating: Number(routeState.rating),
-        },
-        range: {
-          price: routeState.price,
-        },
+        // ratingMenu: {
+        //   rating: Number(routeState.rating),
+        // },
+        // range: {
+        //   price: routeState.price,
+        // },
         toggle: {
-          free_shipping: Boolean(routeState.free_shipping),
+          nationalus: Boolean(routeState.nationalus),
+          allchildhoodcancer: Boolean(routeState.allchildhoodcancer),
         },
         sortBy: routeState.sortBy,
         hitsPerPage: Number(routeState.hitsPerPage),
