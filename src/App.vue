@@ -2,7 +2,7 @@
   <div id="root" class="tracking-tight">
     <ais-instant-search
       :search-client="searchClient"
-      index-name="development_organizations"
+      index-name="production_organizations"
       :routing="routing"
       id="app"
     >
@@ -689,7 +689,7 @@ export default {
         'F62MOPA7KR',
         '85e52ff35b00c7ff5430ea1d182cb818'
       ),
-      routing: getRouting({ indexName: 'development_organizations' })
+      routing: getRouting({ indexName: 'production_organizations' })
     };
   },
   methods: {
