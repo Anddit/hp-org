@@ -2,8 +2,9 @@
   <div id="root" class="tracking-tight">
     <ais-instant-search
       :search-client="searchClient"
-      index-name="production_organizations"
+      index-name="development_organizations"
       :routing="routing"
+      id="app"
     >
      <!--  <ais-configure
      
@@ -145,41 +146,161 @@
                     'hierarch.lvl1'
                   ]"
                   :sort-by="['count:desc']"
+                  class=""
+                  :style="{ minHeight: '10rem' }"
                 />
               </template>
             </ais-panel>
+        <!--   <ais-panel>
+          <template slot="default">
+            <ais-toggle-refinement
+              attribute="states"
+              label="Serves All United States"
+              on="USA United States"
+              class="mb-8"
+            />
+            <ais-toggle-refinement
+              attribute="nationalcanada"
+              label="Serves All United States"
+              on="false"
+              class="mb-8"
+            />
+            <ais-menu-select attribute="orgcountries">
+              <template slot="defaultOption">
+                 Select a Country
+               </template>
+              </ais-menu-select>
+              <ais-refinement-list
+              id="statefilters"
+                attribute="states"
+               :transformItems="transformItems4"
+              
+                />
+          </template>
+        </ais-panel> -->
 
-            <ais-panel>
+         
+            <ais-panel class="flex flex-col w-full relative">
+
               <template slot="header">Location</template>
-              <template slot="default">
-                <ais-toggle-refinement
-                  attribute="nationalus"
-                  label="Serves All United States"
-                  class="mb-8"
-                />
-              </template>
-              <template slot="default">
-                <ais-refinement-list
-                  attribute="states"
-                  searchable
-                  :transformItems="transformItems2"
-                  searchablePlaceholder="Search all states/regions..."
-                  :sort-by="['isRefined','name:asc']"
-                  :limit="5"
-                  show-more
-                  :show-more-limit='60'
+         
+            <button @click="toggleActive" class="flex flex-row justify-between items-center w-full shadow relative rounded-lg border border-gray-200">
+                         
+                         <ais-current-refinements :included-attributes="states" :excluded-attributes="[
+                         'diagnoses',
+                         'hierarch.lvl0',
+                         'hierarch.lvl1'
+                         ]" 
+                         class="flex flex-row w-full">
+                           <div slot-scope="{ items }" class="w-full">
+                            <div v-if="items.length === 0" class="bg-white py-3 px-2 flex flex-row w-full">
+                              All States
+                            </div>
+                            <ul class="bg-blue-100 w-full flex flex-wrap">
 
-                />
+                             <li v-for="item in items" :key="item.attribute" class=" p-3 flex flex-wrap w-full">
+                               
+                                 <ul>
+                                   <li
+                                     v-for="refinement in item.refinements"
+                                     :key="[refinement.value]"
+                                     class="text-blue-500 t2 flex"
+                                   >
+                       
+                                    
+                                       {{ refinement.value }}
+                                    
 
-              </template>
+                                   </li>
+                                     </ul>
+                                   
+                                 </li>
+                               </ul>
+                             </div>
+
+                          
+
+                         </ais-current-refinements>
+                         <ChevronDownIcon class="h-5 w-5 mr-3 text-blue-500 absolute right-0"/>
+                         
+                         </button>
+                         
+                       <!--   <a
+                           :href="createURL(refinement)"
+                          >
+                           {{ refinement.value }}
+                         </a> -->
+<!--                          @click.prevent="item.refine(refinement)"
+ -->
+              <template slot="default" >
+
+                     <ais-refinement-list
+                     attribute="states"
+                     searchable
+                     :limit="60"
+                     :sort-by="['name:asc']"
+                     searchable-placeholder="Search states..."
+                     :transformItems="transformItems2"
+                     id="statefilters"
+                     class="active rounded absolute bg-white z-20"
+                    
+                     >
+
+
+                     <div
+                         slot-scope="{
+                           items,
+                           isShowingMore,
+                           isFromSearch,
+                           canToggleShowMore,
+                           refine,
+                           createURL,
+                           toggleShowMore,
+                           searchForItems,
+                       
+                         }"
+                         class="bg-white w-full"
+                       >
+
+                    <div 
+                     class="h-56 p-3 flex flex-col w-full overflow-y-auto shadow-lg border border-gray-300 rounded bg-white">
+                        <div class="ais-RefinementList-searchBox"><form action="" role="search" novalidate="novalidate" class="ais-SearchBox-form"><input @input="searchForItems($event.currentTarget.value)" type="search" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" required="required" maxlength="512" aria-label="Search" placeholder="Search states..." class="ais-SearchBox-input"> <button type="submit" title="Search" class="ais-SearchBox-submit"><svg role="img" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40" class="ais-SearchBox-submitIcon"><path d="M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z" fillRule="evenodd"></path></svg></button> <button type="reset" title="Clear" hidden="hidden" class="ais-SearchBox-reset"><svg role="img" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20" class="ais-SearchBox-resetIcon"><path d="M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z" fillRule="evenodd"></path></svg></button></form></div>
+                         <ul class=" bg-white">
+                           <li v-if="isFromSearch && !items.length">No results for this search.</li>
+                           <li v-for="item in items" :key="item.value" class="py-1 " >
+                             <a
+                               :href="createURL(item)"
+                               :style="{ fontWeight: item.isRefined ?  'bold' : '' }"
+                               @click.prevent="refine(item.value); toggleActive();"
+                             >
+                               <ais-highlight attribute="item" :hit="item"/>
+                              
+                             </a>
+                           </li>
+                         </ul>
+                       <span slot="noResults" slot-scope="{ query }">No results for
+                           <q>{{ query }}</q>
+                         </span>
+                       </div>
+
+                       </div>
+
+                     </ais-refinement-list>
+            </template>
+
+            
+
+
             </ais-panel>
+           
 
             <ais-panel>
               <template slot="header">Diagnosis</template>
               <template slot="default">
                 <ais-toggle-refinement
-                  attribute="allchildhoodcancer"
+                  attribute="diagnoses"
                   label="Serves All Childhood Cancer"
+                  on="All Childhood Cancer"
                   class="mb-8"
                 />
               </template>
@@ -191,9 +312,9 @@
                   searchablePlaceholder="Search all diagnoses..."
                   :transformItems="transformItems3"
                   :sort-by="['isRefined','name:asc']"
-                  :limit="10"
+                  :limit="5"
                   show-more
-
+                  :show-more-limit='25'
                 />
               </template>
             </ais-panel>
@@ -284,7 +405,8 @@
                 <div class="flex flex-row items-center w-full justify-between pb-2">
                 <div class="flex flex-row items-start">
                  <!--  <MapPinIcon class="text-gray-500 h-4 w-5 mr-1"/> -->
-                  <span v-if="item.location" class="uppercase text-xs  text-gray-600">{{ item.location }}</span>
+                  <span v-if="item.location" class="uppercase text-xs  text-gray-600">
+                  {{ item.location|truncate(100)}}</span>
                   <span v-else> </span>
                 </div>
                 <div class="flex flex-row lg:w-1/6 items-center bg-orange-100 px-3" v-if="item.cac2_approved">
@@ -514,7 +636,7 @@ import cx from 'classnames';
 import NoResults from './widgets/NoResults.vue';
 import { formatNumber } from './utils';
 import getRouting from './routing';
-import { AwardIcon, ImageIcon } from "vue-feather-icons"
+import { AwardIcon, ImageIcon, ChevronDownIcon } from "vue-feather-icons"
 
 import './Theme.css';
 import './App.css';
@@ -527,6 +649,7 @@ export default {
     NoResults,
     AwardIcon,
     ImageIcon,
+    ChevronDownIcon
   },
   
   filters: {
@@ -566,10 +689,16 @@ export default {
         'F62MOPA7KR',
         '85e52ff35b00c7ff5430ea1d182cb818'
       ),
-      routing: getRouting({ indexName: 'production_organizations' })
+      routing: getRouting({ indexName: 'development_organizations' })
     };
   },
   methods: {
+    toggleActive() {
+         document.querySelector("#statefilters").classList.toggle("active");
+       },
+     togglecountriesActive() {
+          document.querySelector("#countryfilters").classList.toggle("active");
+        },
     formatNumber,
     toValue(value, range) {
       return [
@@ -603,10 +732,21 @@ export default {
         }));
     },
     transformItems2(items) {
-        return items.filter(item => item.label !== 'USA United States');
+        return items.filter(item => item.label !== 'CAN Canada' && item.label !== 'USA United States');
     },
     transformItems3(items) {
     return items.filter(item => item.label !== 'All Childhood Cancer' && item.label !== 'Diagnosis Not Listed');
+    
+    },
+    transformItems4(items) {
+    items = items.filter(item => item.label === 'USA United States' || item.label === 'CAN Canada');
+
+    return items.map(item => ({
+                ...item,
+                label: 
+                  item.label.slice(4,20),
+
+            }));
     
     },
   },
@@ -617,4 +757,9 @@ export default {
   .ais-RefinementList-count {
     display:none;
   }
+
+  .active {
+        display:none;
+      }
+  
 </style>

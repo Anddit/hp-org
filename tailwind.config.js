@@ -6,6 +6,7 @@ module.exports = {
                  500: '#5fe0fb',
                },
                 blue: {
+                  100: '#ebf2fe',
                  500: '#1062ed',
                },
                indigo: {
