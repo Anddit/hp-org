@@ -47,6 +47,7 @@
   .filtering .container-filters {
     position: absolute;
     transform: translateY(4rem);
+    
   }
 
   .filtering .container-filters-footer {
@@ -55,7 +56,7 @@
     bottom: 0;
     display: flex;
     justify-content: space-between;
-    margin: 0 -2rem;
+    margin: 0 -1rem;
     padding: 1rem;
     position: fixed;
     width: 100%;
@@ -107,11 +108,11 @@
     font-size: 0.875rem;
     font-weight: bold;
     justify-content: center;
-    left: 50%;
+    left: 80%;
     min-height: 40px;
-    min-width: 112px;
+    min-width: 120px;
     position: fixed;
-    transform: translateX(-50%);
+    transform: translateX(-60%);
   }
 
   .filters-button svg {
@@ -122,6 +123,7 @@
 
   .container {
     padding: 4rem 1rem;
+    display:inherit;
   }
 
   .container-options {
