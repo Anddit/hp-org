@@ -133,6 +133,14 @@ const router = historyRouter({
     ) {
       queryParameters.states = routeState.states.map(encodeURIComponent);
     }
+
+    if (
+      routeState.diagnoses &&
+      routeState.diagnoses !== routeStateDefaultValues.diagnoses
+    ) {
+      queryParameters.diagnoses = routeState.diagnoses.map(encodeURIComponent);
+    }
+
     // if (
     //   routeState.rating &&
     //   routeState.rating !== routeStateDefaultValues.rating
@@ -188,6 +196,7 @@ const router = historyRouter({
       query = '',
       page = 1,
       states = [],
+      diagnoses = [],
       // price,
       nationalus,
       allchildhoodcancer,
@@ -195,6 +204,7 @@ const router = historyRouter({
     } = queryParameters;
     // `qs` does not return an array when there's a single value.
     const allStates = Array.isArray(states) ? states : [states].filter(Boolean);
+    const allDiagnoses = Array.isArray(diagnoses) ? diagnoses : [diagnoses].filter(Boolean);
     const hitsPerPage = getFallbackHitsPerPageRoutingValue(
       queryParameters.hitsPerPage
     );
@@ -205,6 +215,7 @@ const router = historyRouter({
       query: decodeURIComponent(query),
       page,
       states: allStates.map(decodeURIComponent),
+      diagnoses: allDiagnoses.map(decodeURIComponent),
       category,
       // rating,
       // price,
@@ -224,6 +235,7 @@ const getStateMapping = ({ indexName }) => ({
       query: indexUiState.query,
       page: indexUiState.page,
       states: indexUiState.refinementList && indexUiState.refinementList.states,
+      diagnoses: indexUiState.refinementList && indexUiState.refinementList.diagnoses,
       category:
         indexUiState.hierarchicalMenu &&
         indexUiState.hierarchicalMenu['hierarch.lvl0'] &&
@@ -258,6 +270,7 @@ const getStateMapping = ({ indexName }) => ({
         },
         refinementList: {
           states: routeState.states,
+          diagnoses: routeState.diagnoses,
         },
         // ratingMenu: {
         //   rating: Number(routeState.rating),

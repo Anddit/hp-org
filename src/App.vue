@@ -7,7 +7,7 @@
               index-name="production_organizations"
               :search-client="searchClient"
               :routing="routing">
-              <div class="border-b border-gray-200 bg-gray-200">
+              <div id="menu" class="border-b border-gray-200 bg-gray-200">
                 <div class="relative border-b border-gray-200 bg-gray-100 t1">
                       <div class="mx-auto px-4 sm:px-6">
                           <div class="flex w-full justify-center items-center py-3 md:space-x-10">
@@ -82,7 +82,7 @@
 
               <main class="container">
                 <div class="container-wrapper">
-                    <section class="container-filters text-sm">
+                    <section class="container-filters md:text-sm">
                           <div class="container-header">
                             <h2 class="font-bold text-xl">
                                 Filters
@@ -141,6 +141,9 @@
                                     />
                                   </template>
                             </ais-panel>
+
+
+
         <!--   <ais-panel>
           <template slot="default">
             <ais-toggle-refinement
@@ -170,13 +173,16 @@
         </ais-panel> -->
 
          
-                            <ais-panel class="flex flex-col w-full relative">
-                                  <template slot="header">
-                                    Location
-                                </template>
+                            <ais-panel class="flex flex-col w-full relative nobordertop"
+                            v-on-clickaway="toggleaway1"
+                            >
+                              <template slot="default" class="w-full relative " >  
                                 <button
                                     @click="toggleActive"
-                                    class="flex flex-row justify-between items-center w-full shadow relative rounded-lg border border-gray-200">
+                                  
+                                    
+                                   
+                                    class="flex flex-row justify-between items-center  w-full my-1 relative rounded-lg ">
                                      <ais-current-refinements
                                         :included-attributes="states"
                                         :excluded-attributes="[
@@ -184,52 +190,56 @@
                                             'hierarch.lvl0',
                                             'hierarch.lvl1'
                                         ]"
-                                         class="flex flex-row w-full">
+                                        
+                                          class="flex flex-row  w-full">
                                            <div
                                             slot-scope="{ items }"
                                             class="w-full">
-                                            <div
-                                                v-if="items.length === 0"
-                                                class="bg-white py-3 px-2 flex flex-row w-full">
-                                                  All States
-                                            </div>
-                                            <ul class="bg-blue-100 w-full flex flex-wrap">
+                                            
+                                              <div class="border border-gray-400 rounded-lg hover:bg-gray-100  py-3 px-3 flex flex-row justify-between w-full items-center"
+                                              :style="{ backgroundColor: items.length === 0 ?  '' : '#ebf2fe' }"
+                                              >
+
+                                                <div class="t2 text-gray-800 ">State</div>
+                                                <div v-if="items.length === 0" class="flex flex-row items-center">
+                                                  <span class="text-blue-500 t1">All States</span>
+                                                  <ChevronDownIcon class=" h-4 w-4 mx-1 text-gray-500 "/>
+                                                </div>
+                                             
+
+                                            <ul v-else class="flex flex-row w-2/3 items-center">
                                                 <li
-                                                    v-for="item in items"
-                                                    :key="item.attribute"
-                                                    class="p-3 flex flex-wrap w-full">
-                                                    <ul>
-                                                        <li
-                                                            v-for="refinement in item.refinements"
-                                                            :key="[refinement.value]"
-                                                            class="text-blue-500 t2 flex">
-                                                            {{ refinement.value }}
-                                                        </li>
-                                                    </ul>
-                                                </li>
+                                                  v-for="item in items"
+                                                  :key="item.attribute"
+                                                  class="w-5/6">
+                                                  <ul>
+                                                      <li
+                                                          v-for="refinement in item.refinements"
+                                                          :key="[refinement.value]"
+                                                          class="text-right text-blue-500 t1 text-sm tracking-tight leading-tight">
+                                                          {{ refinement.value }}
+                                                      </li>
+                                                  </ul>
+                                              </li>
+                                              <ChevronDownIcon class="h-4 w-4 mx-1 text-gray-500 "/>
+                                            
                                             </ul>
+                                           </div>
                                          </div>
                                      </ais-current-refinements>
-                                     <ChevronDownIcon class="h-5 w-5 mr-3 text-blue-500 absolute right-0"/>
-                                 </button>
+                                   </button>
                          
-                       <!--   <a
-                           :href="createURL(refinement)"
-                          >
-                           {{ refinement.value }}
-                         </a> -->
-<!--                          @click.prevent="item.refine(refinement)"
- -->
-                                  <template slot="default">
-                                     <ais-refinement-list
+                                <ais-refinement-list
                                         id="statefilters"
-                                        attribute="states"
+                                          attribute="states"
                                         searchable
                                         searchable-placeholder="Search States..."
                                         :limit="60"
-                                        :sort-by="['name:asc']"
+                                       :sort-by="['isRefined', 'name:asc']"
                                         :transformItems="transformItems2"
-                                        class="active rounded absolute bg-white z-20">
+                                        class="active rounded absolute bg-white z-20  w-full"
+                                        
+                                        >
                                          <div
                                              slot-scope="{
                                                 items,
@@ -241,9 +251,10 @@
                                                 toggleShowMore,
                                                 searchForItems,
                                             }"
+
                                              class="bg-white w-full">
                                             <div class="h-56 p-3 flex flex-col w-full overflow-y-auto shadow-lg border border-gray-300 rounded bg-white">
-                                                <div class="ais-RefinementList-searchBox">
+                                                <div class="ais-RefinementList-searchBox" v-if="items.length > 0">
                                                     <form
                                                         action=""
                                                         role="search"
@@ -298,7 +309,7 @@
                                                         </button>
                                                     </form>
                                                 </div>
-                                                 <ul class="bg-white">
+                                                 <ul class="bg-white px-3">
                                                        <li v-if="isFromSearch && !items.length">
                                                         No results for this search.
                                                     </li>
@@ -308,50 +319,121 @@
                                                        class="py-1">
                                                         <a
                                                             :href="createURL(item)"
-                                                            :style="{ fontWeight: item.isRefined ?  'bold' : '' }"
+                                                            :style="{ 
+                                                              fontWeight: item.isRefined ?  'bold' : '',
+                                                              color: item.isRefined ? '#1062ed':'' 
+                                                            }"
                                                             @click.prevent="refine(item.value); toggleActive();">
                                                             <ais-highlight attribute="item" :hit="item"/>
                                                         </a>
                                                        </li>
                                                  </ul>
                                                 <span
-                                                    slot="noResults"
-                                                    slot-scope="{ query }">
-                                                        No results for
-                                                        <q>
-                                                            {{ query }}
-                                                        </q>
-                                                </span>
+                                                    v-if="items.length === 0" class="py-3">
+                                                    <b>No matching results yet.</b><br>To see results here, try another search or select new filters. 
+                                                 </span>
                                                </div>
                                            </div>
                                      </ais-refinement-list>
                                 </template>
                             </ais-panel>
-                            <ais-panel>
-                                  <template slot="header">
-                                    Diagnosis
-                                </template>
-                                  <template slot="default">
-                                    <ais-toggle-refinement
+                            
+                            <ais-panel class="flex flex-col w-full relative nobordertop">
+                              <template slot="default" class="w-full relative ">  
+                                <button
+                                    @click="togglediagnosesActive"
+                                    v-on-clickaway="toggleaway2"
+                                    class="flex flex-row justify-between items-center  w-full my-1 relative rounded-lg ">
+                                     <ais-current-refinements
+                                        :included-attributes="diagnoses"
+                                        :excluded-attributes="[
+                                            'states',
+                                            'hierarch.lvl0',
+                                            'hierarch.lvl1'
+                                        ]"
+                                          class="flex flex-row  w-full">
+                                           <div
+                                            slot-scope="{ items }"
+                                            class="w-full">
+                                            
+                                              <div class="border border-gray-400 rounded-lg hover:bg-gray-100  py-3 px-3 flex flex-row justify-between w-full items-center"
+                                              :style="{ backgroundColor: items.length === 0 ?  '' : '#ebf2fe' }"
+                                              >
+
+                                                <div class="t2 text-gray-800 ">Diagnosis</div>
+                                                <div v-if="items.length === 0" class="flex flex-row items-center">
+                                                  <span class="text-blue-500 t1">All Diagnoses</span>
+                                                  <ChevronDownIcon class=" h-4 w-4 mx-1 text-gray-500 "/>
+                                                </div>
+                                             
+
+                                            <ul v-else class="flex flex-row w-2/3 items-center">
+                                                <li
+                                                    v-for="item in items"
+                                                    :key="item.attribute"
+                                                    class="w-5/6">
+                                                    <ul>
+                                                        <li
+                                                            v-for="refinement in item.refinements"
+                                                            :key="[refinement.value]"
+                                                            class="text-left text-blue-500 t1 text-sm tracking-tight leading-tight">
+                                                            {{ refinement.value }}
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <ChevronDownIcon class="h-4 w-4 mx-1 text-gray-500 "/>
+                                            
+                                            </ul>
+                                           </div>
+                                         </div>
+                                     </ais-current-refinements>
+                                   </button>
+                            
+                                <ais-refinement-list
+                                        id="diagnosisfilters"
                                         attribute="diagnoses"
-                                        label="Serves All Childhood Cancer"
-                                        on="All Childhood Cancer"
-                                        class="mb-8"
-                                    />
-                                  </template>
-                                  <template slot="default">
-                                    <ais-refinement-list
-                                        attribute="diagnoses"
-                                        searchable
-                                        searchablePlaceholder="Search Diagnoses..."
-                                        :limit="5"
-                                        :sort-by="['isRefined','name:asc']"
+                                       :sort-by="['isRefined', 'name:asc']"
                                         :transformItems="transformItems3"
-                                        show-more
-                                        :show-more-limit='25'
-                                    />
-                                  </template>
+                                        class="active rounded absolute bg-white z-10  w-full">
+                                         <div
+                                             slot-scope="{
+                                                items,
+                                                refine,
+                                                createURL,
+                                              
+                                            }"
+                                             class="bg-white w-full">
+                                            <div class="h-56 p-3 flex flex-col w-full overflow-y-auto shadow-lg border border-gray-300 rounded bg-white">
+                                                <ul class="bg-white px-3">
+                                                      
+                                                       <li
+                                                       v-for="item in items"
+                                                       :key="item.value"
+                                                       class="py-1">
+                                                        <a
+                                                            :href="createURL(item)"
+                                                            :style="{ 
+                                                              fontWeight: item.isRefined ?  'bold' : '',
+                                                              color: item.isRefined ? '#1062ed':'' 
+                                                            }"
+                                                            @click.prevent="refine(item.value); togglediagnosesActive();">
+                                                            <ais-highlight attribute="item" :hit="item"/>
+                                                        </a>
+                                                       </li>
+                                                 </ul>
+                                                <span
+                                                    v-if="items.length === 0" class="py-3">
+                                                    <b>No matching results yet.</b><br>To see results here, try another search or select new filters. 
+                                                 </span>
+                                               </div>
+                                           </div>
+                                     </ais-refinement-list>
+                                </template>
+                               
                             </ais-panel>
+                          </div>
+                          <div class="h-64">
+                            
                           </div>
                     </section>
                     <footer
@@ -379,15 +461,15 @@
                     </footer>
                 </div>
 
-                <section class="container-results">
+                <section class="container-results md:px-12 px-3">
                       <header class="container-header container-options">
-                        <div class="flex flex-row w-full pl-4 justify-between items-center">
+                        <div class="flex flex-row w-full justify-between items-center">
                             <ais-stats class="w-1/3 container-filters-footer-button-wrapper">
                                 <template
                                     slot="default"
                                     slot-scope="{ nbHits }">
                                     <span class="text-sm">
-                                        Showing {{ formatNumber(nbHits) }} Organizations
+                                        {{ formatNumber(nbHits) }} Organizations
                                     </span> 
                                 </template>
                             </ais-stats>
@@ -428,7 +510,7 @@
                         <div
                             slot="item"
                             slot-scope="{ item }"
-                            class="hover:shadow-lg hover:border-b hover:border-blue-500 pl-4 my-4 pb-4 border-b border-gray-300">
+                            class=" hover:border-b hover:border-blue-500 my-4 pb-4 border-b border-gray-300">
                               <a :href="'https://www.anddit.com/organizations/' + item.id">
                                   <article class="hit border border-gray-200 lg:border-none rounded flex justify-between h-auto items-end lg:h-64 pb-2 mb-2 lg:py-0 flex-wrap-reverse bg-white">
                                     <div class="w-full lg:w-1/2 px-3 lg:px-0 h-auto lg:h-64 tracking-tight">
@@ -461,12 +543,12 @@
                                             />
                                         </h1>
                                         <p class="hit-description text-lg w-full pb-3 font-normal text-gray-600 mt-2 leading-normal">
-                                            {{ item.mission|truncate(150) }}
+                                            {{ item.mission|truncate(125) }}
                                         </p>
                                         <footer>
                                             <div
                                                 v-if="item.known_for"
-                                                class="flex flex-row py-3 w-3/4 items-start">
+                                                class="flex flex-row py-3 w-full lg:w-3/4 items-start">
                                                 <div class="h-full inline">
                                                     <AwardIcon class="inline text-indigo-600 mr-1 h-5 align-left text-xs" />
                                                 </div>
@@ -655,7 +737,7 @@
         </ais-instant-search>
       </div>
 </template>
-
+<script src="https://cdn.jsdelivr.net/npm/vue-clickaway@2.2.2/dist/vue-clickaway.min.js"></script>
 <script>
     import algoliasearch from 'algoliasearch/lite';
 // import VueSlider from 'vue-slider-component';
@@ -669,6 +751,7 @@
     import './App.css';
     import './App.mobile.css';
 // import './widgets/PriceSlider.css';
+import { mixin as clickaway } from 'vue-clickaway';
 
     export default {
           components: {
@@ -676,8 +759,11 @@
             NoResults,
             AwardIcon,
             ImageIcon,
-            ChevronDownIcon
+            ChevronDownIcon,
+         
         },
+       mixins: [ clickaway ],
+        template: '<p v-on-clickaway="away">Click away</p>',
   
         filters: {
             truncate: function(value, limit) {
@@ -697,7 +783,7 @@
             }
 
             this.onClick = event => {
-                if (event.target !== this.header) {
+                if (event.target !== this.header ) {
                 return;
                 }
 
@@ -707,6 +793,7 @@
         mounted() {
             this.resultsContainer = document.querySelector('.container-results');
             this.header = document.querySelector('#header');
+           
         },
         data() {
             return {
@@ -719,12 +806,25 @@
             };
         },
         methods: {
+            hoverActive() {
+                document.querySelector("#statefilters").classList.remove("active");
+            },
+            hoverleaveActive() {
+                document.querySelector("#statefilters").classList.add("active");
+            },
             toggleActive() {
                 document.querySelector("#statefilters").classList.toggle("active");
             },
-            togglecountriesActive() {
-                document.querySelector("#countryfilters").classList.toggle("active");
+            togglediagnosesActive() {
+                document.querySelector("#diagnosisfilters").classList.toggle("active");
             },
+            toggleaway1: function() {
+                  document.querySelector("#statefilters").classList.add("active");
+                },
+            toggleaway2: function() {
+                  document.querySelector("#diagnosisfilters").classList.add("active");
+                },
+          
             formatNumber,
             toValue(value, range) {
                 return [
@@ -759,6 +859,7 @@
             transformItems2(items) {
                 return items.filter(item => item.label !== 'CAN Canada' && item.label !== 'USA United States');
             },
+          
             transformItems3(items) {
                 return items.filter(item => item.label !== 'All Childhood Cancer' && item.label !== 'Diagnosis Not Listed');
             
@@ -784,4 +885,10 @@
   .active {
     display:none;
   }
+  .nobordertop {
+    border-top: none !important;
+    padding-top:.5rem !important;
+    padding-bottom:.5rem !important;
+  }
+
 </style>

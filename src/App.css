@@ -127,7 +127,7 @@ h2 {
 }
 
 .container-results {
-  flex: 3;
+  /*flex: 3;*/
 }
 
 .container-options {
