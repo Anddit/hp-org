@@ -20,6 +20,10 @@
   .container-filters .container-body {
     padding: 2rem 2rem 0 2rem;
   }
+  .container-header {
+    justify-content: space-between;
+    align-items: center;
+  }
 
   .filtering .header {
     /*
