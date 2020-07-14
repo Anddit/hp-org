@@ -4,25 +4,37 @@
     @font-face{
         font-family:"AvenirNextLTW01-Regular";
         src:url("./assets/Fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix");
-        src:url("./assets/Fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("eot"),url("./assets/Fonts/2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2") format("woff2"),url("./assets/Fonts/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff"),url("./assets/Fonts/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf") format("truetype");
+        src:url("./assets/Fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("eot"),
+        url("./assets/Fonts/2cd55546-ec00-4af9-aeca-4a3cd186da53.woff2") format("woff2"),
+        url("./assets/Fonts/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff"),
+        url("./assets/Fonts/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf") format("truetype");
     }
 
     @font-face{
         font-family:"AvenirNextLTW01-Medium";
         src:url("./assets/Fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix");
-        src:url("./assets/Fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix") format("eot"),url("./assets/Fonts/627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2") format("woff2"),url("./assets/Fonts/f26faddb-86cc-4477-a253-1e1287684336.woff") format("woff"),url("./assets/Fonts/63a74598-733c-4d0c-bd91-b01bffcd6e69.ttf") format("truetype");
+        src:url("./assets/Fonts/1a7c9181-cd24-4943-a9d9-d033189524e0.eot?#iefix") format("eot"),
+        url("./assets/Fonts/627fbb5a-3bae-4cd9-b617-2f923e29d55e.woff2") format("woff2"),
+        url("./assets/Fonts/f26faddb-86cc-4477-a253-1e1287684336.woff") format("woff"),
+        url("./assets/Fonts/63a74598-733c-4d0c-bd91-b01bffcd6e69.ttf") format("truetype");
     }
 
     @font-face{
         font-family:"Avenir Next LT W01 Demi";
         src:url("./assets/Fonts/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?#iefix");
-        src:url("./assets/Fonts/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?#iefix") format("eot"),url("./assets/Fonts/aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2") format("woff2"),url("./assets/Fonts/91b50bbb-9aa1-4d54-9159-ec6f19d14a7c.woff") format("woff"),url("./assets/Fonts/a0f4c2f9-8a42-4786-ad00-fce42b57b148.ttf") format("truetype");
+        src:url("./assets/Fonts/12d643f2-3899-49d5-a85b-ff430f5fad15.eot?#iefix") format("eot"),
+        url("./assets/Fonts/aad99a1f-7917-4dd6-bbb5-b07cedbff64f.woff2") format("woff2"),
+        url("./assets/Fonts/91b50bbb-9aa1-4d54-9159-ec6f19d14a7c.woff") format("woff"),
+        url("./assets/Fonts/a0f4c2f9-8a42-4786-ad00-fce42b57b148.ttf") format("truetype");
     }
 
     @font-face{
         font-family:"Avenir Next LT W01 Bold";
         src:url("./assets/Fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix");
-        src:url("./assets/Fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix") format("eot"),url("./assets/Fonts/14c73713-e4df-4dba-933b-057feeac8dd1.woff2") format("woff2"),url("./assets/Fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff") format("woff"),url("./assets/Fonts/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf") format("truetype");
+        src:url("./assets/Fonts/dccb10af-07a2-404c-bfc7-7750e2716bc1.eot?#iefix") format("eot"),
+        url("./assets/Fonts/14c73713-e4df-4dba-933b-057feeac8dd1.woff2") format("woff2"),
+        url("./assets/Fonts/b8e906a1-f5e8-4bf1-8e80-82c646ca4d5f.woff") format("woff"),
+        url("./assets/Fonts/890bd988-5306-43ff-bd4b-922bc5ebdeb4.ttf") format("truetype");
     }
 
 /*</style>*/
@@ -76,18 +88,20 @@ h2 {
 
 .header {
   align-items: center;
-  background: linear-gradient(to bottom, #5CCEF8, #4544E2);
-  background-image: url('./images/cover.png');
+/*  background: linear-gradient(to bottom, #5CCEF8, #4544E2);*/
+  /*background-image: url('./images/cover.png');
   background-image: url('./images/cover.png'),
-    linear-gradient(to bottom, #5CCEF8, #4544E2);
+    linear-gradient(to bottom, #5CCEF8, #4544E2);*/
+  /*background:#4966f7 linear-gradient(95.24deg,#4966f7 0,#8253ff 122.55%);*/
   background-position: center;
   background-size: cover;
-  color: #fff;
+  background:#fff;
+  /*color: #fff;*/
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 368px;
-  padding: 0.5rem 1rem;
+ /* padding: 0.5rem 1rem;*/
   text-align: center;
 }
 
@@ -111,21 +125,23 @@ h2 {
   display: flex;
   margin: 0 auto;
   max-width: 1300px;
-  padding: 2rem 1rem;
-  width:auto;
+  /*padding: 2rem 1rem;*/
+  /*width:auto;*/
+  width:100%;
 }
 
 .container-filters {
-  flex: 1;
+/*  flex: 1;*/
   margin-right: 80px;
   max-width: 260px;
-  width:100%;
+width:100%;
+
 }
 
 .container-header {
   align-items: center;
   display: flex;
-  
+/*  width:100%;*/
   min-height: 80px;
 }
 
@@ -138,7 +154,7 @@ h2 {
   display: flex;
   justify-content: flex-end;
  /* margin-bottom: 30px;*/
-  padding: 0px 0;
+  padding: 0px;
 }
 
 .container-options .container-option:not(:first-child) {
@@ -198,7 +214,7 @@ mark {
 .header .ais-SearchBox .ais-SearchBox-input {
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 48px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.2);
   font-family: "AvenirNextLTW01-Regular", sans-serif;
   height: 64px;
   font-size:1rem;
@@ -388,7 +404,7 @@ mark {
 
 /* Hide all mobile-specific design on desktop */
 
-@media (min-width: 900px) {
+@media (min-width: 1025px) {
   [data-layout='mobile'] {
     display: none;
   }
