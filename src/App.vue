@@ -48,7 +48,7 @@
                 </div>
               </transition> -->
              
-             <div id="menu" class="hidden lg:inline-flex w-full lg:pl-6 lg:pr-12  py-6 lg:justify-between ">
+             <!-- <div id="menu" class="hidden  w-full lg:pl-6 lg:pr-12  py-6 lg:justify-between ">
 
                <div>
                       <a
@@ -63,6 +63,7 @@
                           class="hidden lg:inline text-gray-800 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150 t2">
                           Hope Portal
                       </a>
+
                      
                      </div>
                     
@@ -74,7 +75,7 @@
                                    class="text-black hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
                                    Search
                                </a>
-                               <!-- <a
+                               <a
                                    href="https://anddit.com/hope-portal/"
                                    target="_blank"
                                    class="text-black hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
@@ -85,7 +86,7 @@
                                    target="_blank"
                                    class="text-black  hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150">
                                    Help
-                               </a> -->
+                               </a>
                                <button
                                    @click="openslider = true"
                                  
@@ -93,18 +94,25 @@
                                    About
                                </button>
                            </nav>
-                         </div>
+                         </div> -->
               <header
                   id="header"
                 class="header pb-6 sm:pb-10">
-                <div class="absolute lg:hidden  top-0 right-0 p-6" v-click-outside="hide">
-                <div class="relative  lg:hidden inline-block text-left"  >
-                  <div>
-                    <button class="flex items-center text-gray-800 hover:text-blue-500 focus:outline-none focus:text-gray-600" aria-label="Options" id="options-menu" aria-haspopup="true" aria-expanded="true" @click="isOn = !isOn">
-                      <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                
+                <a href="/hope-portal"><img src="https://anddit-v3-development.s3.us-east-2.amazonaws.com/assetsandimages/HP.png" class="hidden absolute top-0 left-0 mt-4 mx-12 md:block h-16 w-auto bg-white shadow-lg rounded-full ">
+                  </a>
+
+                <div class="absolute   top-0 right-0 px-6 mt-6 " v-click-outside="hide">
+                <div class="relative lg:mx-12  inline-block text-left"  >
+                  <div class="inline-flex items-center">
+                   <!--  <span class="hidden lg:block inline">Menu</span> -->
+                   
+                    <button class="flex  items-center text-gray-600 hover:text-blue-500 focus:outline-none focus:text-gray-600" aria-label="Options" id="options-menu" aria-haspopup="true" aria-expanded="true" @click="isOn = !isOn">
+                      <svg class="h-5 w-5 lg:w-8 lg:h-8" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                       </svg>
                     </button>
+                   
                   </div>
 
                   <!--
@@ -147,22 +155,24 @@
                 </div>
                   
                       
-                <div class="flex ">
-                      <!-- <a
-                        href="/hope-portal"
-                        class="flex flex-row items-center">
-                        <img
-                              :src="'https://anddit-v3-development.s3.us-east-2.amazonaws.com/assetsandimages/HP.png'"
-                              class="h-16 w-auto bg-white mb-4 py-2 px-1 rounded-lg opacity-75 mr-2"
-                              alt="Hope Portal">
-                      </a> -->
-                      <img src="./images/JessHP2.png" class="md:hidden ">
-                      <img src="./images/JessHP3.png" class="hidden md:flex md:h-56">
+                <div class="block w-full md:hidden">
+                   
+                      <img src="./images/JessHP2.png" class="w-full h-auto ">
+                     
                 </div>
-                <div class="header-title pt-4 text-blue-900  text-xl lg:text-2xl leading-tight font-bold w-5/6 lg:w-2/5">
-                    The Hope Portal is a curated directory of the best organizations in childhood cancer.
+                <div class="hidden md:block md:h-64">
+                     <img src="./images/JessHP3.png" class="h-64">
                 </div>
-                <p class="text-sm t1 pb-8 sm:pb-2 text-gray-500 pt-3 sm:mb-4 mb-8">
+
+                <img src="https://anddit-v3-development.s3.us-east-2.amazonaws.com/assetsandimages/HP.png" class="block sm:hidden h-16 w-auto bg-white shadow-lg rounded-full ">
+
+                <div class="header-title t2 pt-4 md:pt-8 text-blue-900  text-2xl lg:text-2xl tracking-tight leading-tight w-full lg:w-2/5">
+                    <span class="titlegray">
+                      The Hope Portal is a curated directory of the best organizations in childhood cancer.
+                    </span>
+                </div>
+
+                <p class="text-sm t1 pb-8 sm:pb-2 text-gray-500 pt-3 sm:mb-8 mb-8">
                     a Coalition Against Childhood Cancer collaboration
                 </p>
                 <ais-search-box
@@ -225,26 +235,36 @@
                             </div>
                           </header>
                           <img src="./images/JessHP.jpg" class=" w-full border border-gray-300 bg-white  ">
-                          <div class="relative flex-1 px-4 sm:px-8">
-                            <div class="text-black text-2xl flex flex-col w-full text-left pb-4">
-                               <h2 class=" text-sm t2 text-gray-500">
+                          <div class="relative flex-1 ">
+                            <div class="text-black text-2xl flex flex-col w-full text-left pb-4 ">
+                              <!--  <h2 class=" text-sm t2 text-gray-500">
                              ABOUT
-                               </h2>
-                              
-                            <span class="text-2xl w-full leading-tight text-blue-900 t2 pt-2 tracking-tight ">The Hope Portal features the best organizations in childhood cancer. 
-                            </span>
-                              <div class="pt-3 inline-flex text-sm t1 text-gray-500 justify-between">
-                                
-                              <a class="mr-2" target="_blank" href="https://anddit.com/hope-portal/">
-                                Learn more about Hope Portal
-                              </a>
-                              <span>
-                                &#183;
-                              </span>
-                              <a target="_blank" href="https://anddit.drift.help/category/getting-started-with-the-hope-portal/">
-                                View Help Center
-                              </a>
+                               </h2> -->
+                               <div class="px-4 sm:px-8">
+                              <img src="https://anddit-v3-development.s3.us-east-2.amazonaws.com/assetsandimages/HP.png" class="block h-16 w-16 bg-white shadow-lg rounded-full -mt-6">
                               </div>
+
+                              <div class="px-4 sm:px-8">
+
+                            <div class="text-2xl md:text-2xl w-full leading-tight text-blue-900 t2 pb-3 pt-2 tracking-tight ">A curated directory of childhood cancer organizations
+                            </div>
+                            <p class="text-sm opacity-75">
+                              The Hope Portal is a centralized and comprehensive cloud-based tool designed to assist families and health care professionals in their search for childhood cancer support services and information.  
+
+                            </p>
+                            <div class="flex mt-2 mb-4 flex-wrap-reverse items-center justify-between">
+                           
+                            <div class="h-full pt-2 md:pt-0 w-3/4 items-center text-xs t1  text-gray-700">
+                                <a class="underline" target="_blank" href="http://cac2.org/"> Coalition Against Childhood Cancer</a>
+                            </div>
+                            <div class="flex w-1/5 flex-row  items-center   bg-white ">    
+                            <img
+                                src="https://anddit-v3-production.s3.amazonaws.com/coalitions/badges/000/000/001/original/cac2-default.png?1500653420"
+                                class="h-10 w-10 p-2 bg-gray-100 border border-gray-300 rounded-full">
+                                </div>
+                              </div>
+                              </div>
+
                            <!--  <div class="mx-auto items-center">
                               <button class="inline-flex items-center px-10 tracking-tight py-3  text-left my-5  t2 text-base text-indigo-600 bg-white border-indigo-600 border shadow-lg hover:shadow-2xl rounded-lg" >
                                                             
@@ -255,13 +275,14 @@
                                                           </button>
 
                             </div> -->
-                           <hr class="mb-8 mt-6"/>
-                             <h2 class=" text-sm t2 mb-2 text-gray-500">
-                            GET INVOLVED
+                            <div class="bg-indigo-100 px-4 sm:px-8 py-10">
+                          
+                             <h2 class=" tracking-tight uppercase text-xs t2 mb-3 titlegray">
+                           For Organizations
                              </h2>
-                            <div class="rounded bg-gray-100 shadow border-gray-300 hover:border-indigo-600 border p-3 hover:bg-white">
+                            <div class=" rounded  shadow-lg hover:shadow-lg hover:bg-gray-200 border-gray-200 border p-3 bg-white">
                              
-                            <a href="" class=" text-gray-800 hover:text-blue-500 flex flex-row w-full items-center justify-between">
+                            <a href="" class=" text-indigo-600 hover:text-blue-500 flex flex-row w-full items-center justify-between">
                            <div class="w-3/4 text-base t1 leading-tight py-2">
                              Embed the Hope Portal on your website, for free!
                                                         
@@ -271,14 +292,12 @@
                            </div>
                             </a>
                             </div>
-                             <div class="mt-3 rounded bg-gray-100 shadow border-gray-300 hover:border-indigo-600 border p-3 hover:bg-white">
+                             <div class="mt-3 rounded shadow hover:bg-indigo-800 border border-gray-200 bg-indigo-600 p-3">
                               
-                             <a href="" class=" text-gray-800 hover:text-blue-500 flex flex-row w-full items-center justify-between">
-                            <div class="w-3/4 text-base t1 leading-tight py-2">
-                             <div class="text-indigo-600 t2 text-xs">
-                               For Organizations
-                             </div>
-                             Sign up to create/claim your page!
+                             <a href="" class=" flex flex-row w-full items-center text-white  justify-between">
+                            <div class="w-3/4 text-base t1  leading-tight py-2">
+                             
+                             Sign up to create/claim your organization's page!
                                                          
                             </div>
                             <div class="text-right justify-right">
@@ -288,6 +307,20 @@
                              </div>
 
                           
+                            </div>
+                            </div>
+
+                            <div class="pt-10 px-4 sm:px-8 pb-6 inline-flex text-sm t1 text-gray-500 w-full justify-between">
+                              
+                            <a  target="_blank" href="https://anddit.com/hope-portal/">
+                              More About Hope Portal
+                            </a>
+                            <span class="mx-1">
+                              &#183;
+                            </span>
+                            <a target="_blank" href="https://anddit.drift.help/category/getting-started-with-the-hope-portal/">
+                           Help Center
+                            </a>
                             </div>
 
                             <!-- 
@@ -311,7 +344,7 @@
                     <section class="container-filters   lg:text-sm">
                           <div class="container-header">
                             
-                            <h2 class="font-bold text-xl">
+                            <h2 class="text-lg t1">
                                 Filters
                             </h2>
                             <ais-clear-refinements data-layout="desktop" class="px-3 ">
@@ -325,10 +358,10 @@
                                   <template
                                     slot="default"
                                     slot-scope="{ nbHits }">
-                                    <span class="ais-Stats-text">
-                                          <strong>
+                                    <span class="ais-Stats-text t1">
+                                          
                                               {{ formatNumber(nbHits) }}
-                                        </strong> results
+                                         results
                                     </span>
                                   </template>
                             </ais-stats>
@@ -453,7 +486,7 @@
                                               class="bg-white w-full">
                                              <div class="h-64 p-3 flex flex-col w-full overflow-y-auto shadow-lg border border-gray-300 rounded bg-white">
                                                <span
-                                                   v-if="items.length > 0" class="text-gray-600 text-xs py-3">
+                                                   v-if="items.length > 0" class="text-gray-600 text-sm sm:text-xs py-3">
                                                    Select countries to view national organizations
                                                 </span>
                                                   <ul class="bg-white px-3">
@@ -651,7 +684,7 @@
                                                     </form>
                                                 </div>
                                                 <span
-                                                    v-if="items.length > 0" class="text-xs text-gray-600 py-3">
+                                                    v-if="items.length > 0" class="text-sm sm:text-xs text-gray-600 py-3">
                                                     Select states to view local organizations
                                                  </span>
                                                  <ul class="bg-white px-3">
@@ -766,7 +799,7 @@
                                             <div class="h-64 p-3 flex flex-col w-full overflow-y-auto shadow-lg border border-gray-300 rounded bg-white">
 
                                               <span
-                                                  v-if="items.length > 0" class="text-xs text-gray-600 py-3">
+                                                  v-if="items.length > 0" class="text-sm sm:text-xs text-gray-600 py-3">
                                                   View organizations serving a diagnosis and/or view <i>All Childhood Cancer</i>
                                                </span>
 
@@ -815,9 +848,9 @@
         
                         <ais-clear-refinements
                             @click="closeFilters"
-                            class="container-filters-footer-button-wrapper"
+                            class="container-filters-footer-button-wrapper "
                         >
-                        <span slot="resetLabel">Clear filters</span>
+                        <span slot="resetLabel"><span class="tracking-tight t1">Clear filters</span></span>
                         </ais-clear-refinements>
                           <ais-stats class="container-filters-footer-button-wrapper">
                             <template
@@ -826,7 +859,7 @@
                                   <button
                                     @click="closeFilters"
                                     class="button button-primary">
-                                    Show {{ formatNumber(nbHits) }} results
+                                    View {{ formatNumber(nbHits) }} results
                                   </button>
                             </template>
                           </ais-stats>
@@ -836,7 +869,7 @@
                 <section class="container-results w-full md:px-16">
                       <header class="container-header container-options ">
                         <div class="flex flex-row w-full justify-between items-center">
-                           <h2 class="font-bold text-xl text-indigo-600">
+                           <h2 class=" text-xl titlegray">
                                Organizations
                            </h2>
                             <ais-stats class="container-filters-footer-button-wrapper">
@@ -882,7 +915,7 @@
                       </header>
 
                       <div class="lg:hidden flex flex-row w-full mb-1 rounded justify-between items-center">
-                       <div class="text-indigo-600 t2 w-1/4 text-base">
+                       <div class="titlegray t2 w-1/4 text-base">
                         Organizations
                        </div>
                       <button
@@ -961,7 +994,7 @@
                                             class="pb-2 lg:pb-0 max-h-full w-full rounded object-contain">
                                         <div
                                             v-else
-                                            class="flex h-56 mb-2 lg:mb-0 items-center border border-gray-300 w-full align-middle justify-center rounded bg-gray-100 opacity-75">
+                                            class="hidden md:flex h-56 mb-2 lg:mb-0 items-center border border-gray-300 w-full align-middle justify-center rounded bg-gray-100 opacity-75">
                                             <ImageIcon class="theme-teal h-10 w-auto"/>
                                         </div>
                                     </header>
@@ -1297,11 +1330,25 @@ import ClickOutside from 'vue-click-outside';
 
 <style>
 
+.ais-HierarchicalMenu-count {
+  font-family:"AvenirNextLTW01-Medium", sans-serif;
+  letter-spacing: 0;
+}
+  .searchshadow {
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .avenirmedium {
+    font-family:"AvenirNextLTW01-Medium", sans-serif;
+  }
 
   .ais-RefinementList-count {
     display:none;
   }
 
+  .titlegray {
+    color: #262626;
+  }
   .active {
     display:none;
   }
@@ -1352,6 +1399,10 @@ import ClickOutside from 'vue-click-outside';
         border-bottom-color: #4544e2;
         border-width: 11px;
         margin-left: -11px;
+       }
+
+       .accentpurple {
+        color: #5b25b2;
        }
 
 </style>

@@ -72,7 +72,11 @@ h2 {
   /*color: #21243d;*/
   font-family: "Avenir Next LT W01 Demi", sans-serif;
   font-size: 1.5rem;
-  font-weight: bold;
+  /*font-weight: bold;*/
+}
+
+.t0 {
+  font-family: "AvenirNextLTW01-Regular", sans-serif;
 }
 
 .t1 {
@@ -136,6 +140,7 @@ h2 {
   max-width: 260px;
 width:100%;
 
+
 }
 
 .container-header {
@@ -185,6 +190,7 @@ mark {
 .clear-filters {
   align-items: center;
   display: flex;
+
 }
 
 .clear-filters svg {
