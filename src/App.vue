@@ -931,7 +931,7 @@
                             slot="item"
                             slot-scope="{ item }"
                             class="w-full hover:shadow-lg bg-white hover:border-blue-500 px-3 lg:px-6 lg:pl-12 my-4 py-6 lg:my-0  border border-gray-200">
-                              <a :href="'https://www.anddit.com/organizations/' + item.id">
+                              <a target="_blank" :href="'https://www.anddit.com/organizations/' + item.id">
                                   <article class="hit  lg:border-none rounded flex justify-between h-auto items-end lg:h-64 pb-2 mb-2 lg:py-0 flex-wrap-reverse bg-white w-full">
                                     <div class="w-full lg:w-1/2 px-3 lg:px-0 h-auto lg:h-64 tracking-tight">
                                         <div class="flex flex-row items-center w-full justify-between pb-2">
