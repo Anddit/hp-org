@@ -11,13 +11,17 @@
     "algoliasearch": "^4.0.1",
     "classnames": "2.2.6",
     "core-js": "^3.6.5",
+    "document-register-element": "^1.14.3",
     "instantsearch.js": "^4.5.0",
     "tailwindcss": "^1.4.6",
     "vue": "^2.6.11",
+    "vue-click-outside": "^1.1.0",
     "vue-clickaway": "^2.2.2",
+    "vue-custom-element": "^3.2.14",
     "vue-feather-icons": "^5.0.0",
     "vue-instantsearch": "^3.0.3",
-    "vue-slider-component": "3.0.32"
+    "vue-slider-component": "3.0.32",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
