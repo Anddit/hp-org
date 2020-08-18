@@ -117,7 +117,7 @@
     /*font: inherit;*/
    
     font-family: "AvenirNextLTW01-Medium", sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     /*font-weight: bold;*/
     justify-content: center;
     padding: 12px;
@@ -128,6 +128,8 @@
   .container-filters-footer .button-primary {
     background-color: #1062ed;
     color: #fff;
+
+    font-family: "Avenir Next LT W01 Bold", sans-serif;
 
   }
 
